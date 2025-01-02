@@ -4,6 +4,7 @@ import 'package:flutter_tutorial/helpers/constants.dart';
 import 'package:flutter_tutorial/helpers/validators.dart';
 import 'package:flutter_tutorial/widgets/custome_button.dart';
 import 'package:flutter_tutorial/widgets/custome_card.dart';
+import '../views/home_page.dart';
 
 import '../config/routes.dart';
 import '../models/login_models.dart';
@@ -31,6 +32,13 @@ class _LoginScreenState extends State<LoginPage> {
         password: passwordController.text,
          pohne: passwordController.text,
       );
+       
+
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
 
      // // Navigate to HomeScreen and pass the user model
      //  Navigator.push(
@@ -48,7 +56,7 @@ class _LoginScreenState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Login'),),
       body: Padding(
         padding:const EdgeInsets.symmetric(horizontal: defaultPadding,vertical: 10.5),
         child: CustomCard(
@@ -80,7 +88,14 @@ class _LoginScreenState extends State<LoginPage> {
                 CustomGradientButton(
                     text: "Login",
                     onPressed: _login),
+
+                    //   MaterialButton(onPressed: toggleTheme,
+                    // textColor:Colors.yellow ,
+                    // color:Colors.red  ,
+                    // ),
               ],
+              
+              
             ),
           ),
         ),

@@ -55,7 +55,7 @@ class RouterManager {
         case getXRoute:
         return MaterialPageRoute(builder: (_) => const GetxHome());
       default:
-        return MaterialPageRoute(builder: (_) => const LoginPage());
+        return MaterialPageRoute(builder: (_) => const HomePage());
     }
   }
 

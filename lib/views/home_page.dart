@@ -3,9 +3,9 @@ import '../models/login_models.dart';
 import '../themes/colors.dart';
 
 class HomePage extends StatefulWidget {
-  final UserModel? user;
+  
 
-  const HomePage({super.key, this.user});
+  const HomePage({super.key,});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   late Animation<Offset> _slideAnimation;
 
   bool _isDrawerOpen = false;
-  ThemeMode _themeMode = ThemeMode.light;
+  ThemeMode themeMode = ThemeMode.light;
 
   @override
   void initState() {
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   void toggleTheme() {
     setState(() {
-      _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+      themeMode = themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     });
   }
 
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
-      themeMode: _themeMode,
+      themeMode: themeMode,
       home: Material(
         child: Stack(
           children: [
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       position: _slideAnimation,
       child: Container(
         decoration: BoxDecoration(
-          gradient: _themeMode == ThemeMode.light ? AppGradients.backgroundGradient:AppGradients.backgroundGradientDark
+          gradient: themeMode == ThemeMode.light ? AppGradients.backgroundGradient:AppGradients.backgroundGradientDark
 
         ),
         child: Column(
@@ -136,27 +136,31 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
             actions: [
               IconButton(
                 icon: Icon(
-                  _themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode,
+                  themeMode == ThemeMode.light ? Icons.dark_mode : Icons.light_mode,
                 ),
                 onPressed: toggleTheme,
+             
               ),
             ],
           ),
           body: Column(
             children: [
+               
               const SizedBox(height: 50),
               Center(
+                
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Welcome, ${widget.user?.username ?? 'Guest'}!',
+                      'Welcome,  Guest',
                       style: const TextStyle(fontSize: 24),
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'User ID: ${widget.user?.id ?? 'N/A'}',
+                      'User ID: N/A',
                       style: const TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 24),
@@ -166,11 +170,20 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       },
                       child: const Text('Logout'),
                     ),
+                    Container(
+                      height: 10,
+                    ),
+                    MaterialButton(onPressed: toggleTheme,
+                    textColor:Colors.white ,
+                    color:Colors.red  ,
+                    child: Text("Welcome"),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
+          
         ),
       
     );

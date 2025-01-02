@@ -61,9 +61,9 @@ class ThemeDecorations {
   }
 
   static BoxDecoration gradientRoundedButton(BuildContext context) {
-    return BoxDecoration(
+    return const BoxDecoration(
       gradient: AppGradients.buttonGradient,
-      borderRadius: const BorderRadius.all(Radius.circular(defaultRadius)),
+      borderRadius: BorderRadius.all(Radius.circular(defaultRadius)),
     );
   }
 
